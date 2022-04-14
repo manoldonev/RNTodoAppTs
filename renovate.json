@@ -1,0 +1,18 @@
+{
+    "extends": [
+      "config:base",
+      "group:allNonMajor",
+      "group:monorepos",
+      ":automergeMinor",
+      ":automergeRequireAllStatusChecks",
+      ":ignoreUnstable",
+      ":enableVulnerabilityAlertsWithLabel(security)",
+      ":rebaseStalePrs",
+      ":preserveSemverRanges",
+      ":semanticCommitTypeAll(chore)",
+      ":semanticCommitScopeDisabled",
+      "npm:unpublishSafe"
+    ],
+    "prCreation": "not-pending"
+  }
+  
