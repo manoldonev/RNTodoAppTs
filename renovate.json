@@ -1,18 +1,19 @@
 {
-    "extends": [
-      "config:base",
-      "group:allNonMajor",
-      "group:monorepos",
-      ":automergeMinor",
-      ":automergeRequireAllStatusChecks",
-      ":ignoreUnstable",
-      ":enableVulnerabilityAlertsWithLabel(security)",
-      ":rebaseStalePrs",
-      ":preserveSemverRanges",
-      ":semanticCommitTypeAll(chore)",
-      ":semanticCommitScopeDisabled",
-      "npm:unpublishSafe"
-    ],
-    "prCreation": "not-pending"
-  }
-  
+  "extends": [
+    "config:base",
+    "group:allNonMajor",
+    "group:monorepos",
+    ":automergeMinor",
+    ":automergeRequireAllStatusChecks",
+    ":ignoreUnstable",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":rebaseStalePrs",
+    ":preserveSemverRanges",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScopeDisabled",
+    "npm:unpublishSafe"
+  ],
+  "prCreation": "not-pending",
+  "ignoreDeps": ["react", "@types/react", "react-test-renderer"],
+  "enabledManagers": ["npm"]
+}
