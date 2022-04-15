@@ -7,8 +7,10 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest --watchAll",
+    "test:related": "npm run test -- --bail --watchAll=false --findRelatedTests src/**/*.{ts,tsx} --passWithNoTests",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "prettier": "prettier --check src"
+    "prettier": "prettier --check src",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -35,9 +37,12 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "husky": "^7.0.4",
     "jest": "^27.0.0",
+    "lint-staged": "^12.3.8",
     "metro-react-native-babel-preset": "^0.70.0",
     "react-test-renderer": "17.0.2",
+    "tsc-files": "^1.1.3",
     "typescript": "^4.4.4"
   },
   "resolutions": {
