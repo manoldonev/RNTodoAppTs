@@ -1,0 +1,8 @@
+{
+  "src/**/*.{ts,tsx}": [
+    "prettier --write",
+    "npm run lint -- --cache --fix",
+    "tsc-files --noEmit",
+    "npm run test:related"
+  ]
+}
