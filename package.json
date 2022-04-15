@@ -11,7 +11,7 @@
     "prettier": "prettier --check src"
   },
   "dependencies": {
-    "react": "17.0.2",
+    "react": "18.0.0",
     "react-native": "~0.68.0"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "jest": "^27.0.0",
     "metro-react-native-babel-preset": "^0.67.0",
-    "react-test-renderer": "17.0.2",
+    "react-test-renderer": "18.0.0",
     "typescript": "^4.4.4"
   },
   "resolutions": {
