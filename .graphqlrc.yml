@@ -1,0 +1,23 @@
+overwrite: true
+schema: 'https://fakeql.com/graphql/a84889379bf38e69400ee9ba6ad07c58'
+documents: 'src/**/*.gql'
+generates:
+  src/generated/index.ts:
+    plugins:
+      - add:
+          content: '// @ts-nocheck'
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+      - typescript-msw
+    config:
+      fetcher:
+        endpoint: 'https://fakeql.com/graphql/a84889379bf38e69400ee9ba6ad07c58'
+        fetchParams:
+          headers:
+            # MSW does not intercept unless this header is explicitly specified
+            Content-Type: 'application/json'
+      addInfiniteQuery: true
+  ./graphql.schema.json:
+    plugins:
+      - introspection
