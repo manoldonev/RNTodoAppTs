@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useUpdateTodo } from './hooks/useUpdateTodo';
 
 const styles = StyleSheet.create({
   item: {
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
   task: {
     fontSize: 20,
   },
+  strikeThrough: { textDecorationLine: 'line-through' },
 });
 
 const TodoItem = ({
@@ -22,15 +24,21 @@ const TodoItem = ({
 }: {
   data: { id: string; task: string; done: boolean } | undefined | null;
 }): JSX.Element | null => {
+  const { mutate: updateTodo } = useUpdateTodo();
+
   if (data == null) {
     return null;
   }
 
+  const toggleItem = (): void => {
+    updateTodo({ id: data.id, input: { done: !data.done } });
+  };
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={toggleItem}>
       <View style={styles.item}>
-        <Text>{`Lorem Ipsum #${data.id}`}</Text>
-        <Text style={styles.task} numberOfLines={3}>
+        <Text style={[data.done && styles.strikeThrough]}>{`Lorem Ipsum #${data.id}`}</Text>
+        <Text style={[styles.task, data.done && styles.strikeThrough]} numberOfLines={3}>
           {data.task}
         </Text>
       </View>
