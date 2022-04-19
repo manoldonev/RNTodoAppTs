@@ -3,11 +3,15 @@ import React from 'react';
 import { SafeAreaView, StatusBar, Text, useColorScheme, View } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Todos } from '../Todos/Todos';
+import { useRefetchOnAppFocus, useRefetchOnReconnect } from './hooks';
 
 const queryClient = new QueryClient();
 
 const App = (): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  useRefetchOnReconnect();
+  useRefetchOnAppFocus();
 
   return (
     <SafeAreaView>
