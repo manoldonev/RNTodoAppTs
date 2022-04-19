@@ -33,7 +33,7 @@ const Todos = (): JSX.Element => {
       keyExtractor={(item, index) => (item != null ? item.id : index.toString())}
       renderItem={({ item }) => <TodoItem data={item} />}
       onEndReached={loadMore}
-      onEndReachedThreshold={0.3}
+      onEndReachedThreshold={0.5}
       ListFooterComponent={
         isFetchingNextPage ? <ActivityIndicator size="large" style={{ paddingVertical: 10 }} /> : null
       }

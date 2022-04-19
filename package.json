@@ -14,6 +14,7 @@
     "graphql:codegen": "graphql-codegen --config .graphqlrc.yml"
   },
   "dependencies": {
+    "@react-native-community/netinfo": "^8.2.0",
     "msw": "^0.39.2",
     "react": "17.0.2",
     "react-native": "~0.68.0",
