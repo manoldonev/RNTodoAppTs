@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useQuery, useInfiniteQuery, UseQueryOptions, UseInfiniteQueryOptions, QueryFunctionContext } from 'react-query';
+import { useQuery, useInfiniteQuery, useMutation, UseQueryOptions, UseInfiniteQueryOptions, UseMutationOptions, QueryFunctionContext } from 'react-query';
 import { graphql, ResponseResolver, GraphQLRequest, GraphQLContext } from 'msw'
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -363,6 +363,14 @@ export type TodosQueryVariables = Exact<{
 
 export type TodosQuery = { __typename?: 'Query', todos?: Array<{ __typename?: 'Todo', id: string, task: string, done: boolean } | null> | null };
 
+export type UpdateTodoMutationVariables = Exact<{
+  id: Scalars['ID'];
+  input: UpdateTodoInput;
+}>;
+
+
+export type UpdateTodoMutation = { __typename?: 'Mutation', updateTodo: { __typename?: 'Todo', id: string, task: string, done: boolean } };
+
 
 export const TodosDocument = `
     query Todos($page: Int, $limit: Int, $input: TodosWhere, $sort: String, $direction: String) {
@@ -399,6 +407,24 @@ export const useInfiniteTodosQuery = <
       options
     );
 
+export const UpdateTodoDocument = `
+    mutation updateTodo($id: ID!, $input: UpdateTodoInput!) {
+  updateTodo(id: $id, input: $input) {
+    id
+    task
+    done
+  }
+}
+    `;
+export const useUpdateTodoMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(options?: UseMutationOptions<UpdateTodoMutation, TError, UpdateTodoMutationVariables, TContext>) =>
+    useMutation<UpdateTodoMutation, TError, UpdateTodoMutationVariables, TContext>(
+      ['updateTodo'],
+      (variables?: UpdateTodoMutationVariables) => fetcher<UpdateTodoMutation, UpdateTodoMutationVariables>(UpdateTodoDocument, variables)(),
+      options
+    );
 
 /**
  * @param resolver a function that accepts a captured request and may return a mocked response.
@@ -414,5 +440,22 @@ export const useInfiniteTodosQuery = <
 export const mockTodosQuery = (resolver: ResponseResolver<GraphQLRequest<TodosQueryVariables>, GraphQLContext<TodosQuery>, any>) =>
   graphql.query<TodosQuery, TodosQueryVariables>(
     'Todos',
+    resolver
+  )
+
+/**
+ * @param resolver a function that accepts a captured request and may return a mocked response.
+ * @see https://mswjs.io/docs/basics/response-resolver
+ * @example
+ * mockUpdateTodoMutation((req, res, ctx) => {
+ *   const { id, input } = req.variables;
+ *   return res(
+ *     ctx.data({ updateTodo })
+ *   )
+ * })
+ */
+export const mockUpdateTodoMutation = (resolver: ResponseResolver<GraphQLRequest<UpdateTodoMutationVariables>, GraphQLContext<UpdateTodoMutation>, any>) =>
+  graphql.mutation<UpdateTodoMutation, UpdateTodoMutationVariables>(
+    'updateTodo',
     resolver
   )
