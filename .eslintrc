@@ -57,7 +57,8 @@
     "@typescript-eslint/no-use-before-define": [
       "error",
       {
-        "functions": false
+        "functions": false,
+        "variables": false
       }
     ],
     "@typescript-eslint/non-nullable-type-assertion-style": "error",

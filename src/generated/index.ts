@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useQuery, useInfiniteQuery, useMutation, UseQueryOptions, UseInfiniteQueryOptions, UseMutationOptions, QueryFunctionContext } from 'react-query';
+import { useMutation, useQuery, useInfiniteQuery, UseMutationOptions, UseQueryOptions, UseInfiniteQueryOptions, QueryFunctionContext } from 'react-query';
 import { graphql, ResponseResolver, GraphQLRequest, GraphQLContext } from 'msw'
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -352,6 +352,13 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']>;
 };
 
+export type DeleteTodoMutationVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type DeleteTodoMutation = { __typename?: 'Mutation', deleteTodo: string };
+
 export type TodosQueryVariables = Exact<{
   page?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -372,6 +379,20 @@ export type UpdateTodoMutationVariables = Exact<{
 export type UpdateTodoMutation = { __typename?: 'Mutation', updateTodo: { __typename?: 'Todo', id: string, task: string, done: boolean } };
 
 
+export const DeleteTodoDocument = `
+    mutation deleteTodo($id: ID!) {
+  deleteTodo(id: $id)
+}
+    `;
+export const useDeleteTodoMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(options?: UseMutationOptions<DeleteTodoMutation, TError, DeleteTodoMutationVariables, TContext>) =>
+    useMutation<DeleteTodoMutation, TError, DeleteTodoMutationVariables, TContext>(
+      ['deleteTodo'],
+      (variables?: DeleteTodoMutationVariables) => fetcher<DeleteTodoMutation, DeleteTodoMutationVariables>(DeleteTodoDocument, variables)(),
+      options
+    );
 export const TodosDocument = `
     query Todos($page: Int, $limit: Int, $input: TodosWhere, $sort: String, $direction: String) {
   todos(page: $page, limit: $limit, where: $input, sort: $sort, dir: $direction) {
@@ -425,6 +446,23 @@ export const useUpdateTodoMutation = <
       (variables?: UpdateTodoMutationVariables) => fetcher<UpdateTodoMutation, UpdateTodoMutationVariables>(UpdateTodoDocument, variables)(),
       options
     );
+
+/**
+ * @param resolver a function that accepts a captured request and may return a mocked response.
+ * @see https://mswjs.io/docs/basics/response-resolver
+ * @example
+ * mockDeleteTodoMutation((req, res, ctx) => {
+ *   const { id } = req.variables;
+ *   return res(
+ *     ctx.data({ deleteTodo })
+ *   )
+ * })
+ */
+export const mockDeleteTodoMutation = (resolver: ResponseResolver<GraphQLRequest<DeleteTodoMutationVariables>, GraphQLContext<DeleteTodoMutation>, any>) =>
+  graphql.mutation<DeleteTodoMutation, DeleteTodoMutationVariables>(
+    'deleteTodo',
+    resolver
+  )
 
 /**
  * @param resolver a function that accepts a captured request and may return a mocked response.
