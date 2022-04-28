@@ -1,25 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
-import { useTodos } from './hooks/useTodos';
+import { useTodos } from './hooks';
 import { TodoItem } from './TodoItem';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  noData: {
-    fontSize: 18,
-    textAlign: 'center',
-  },
-});
 
 const Todos = (): JSX.Element => {
   const { data, loadMore, isLoading, isFetchingNextPage } = useTodos();
   const isEmpty = !isLoading && (data == null || data.pages.length === 0 || data.pages[0].todos?.length === 0);
 
-  if (!isLoading && isEmpty) {
+  if (isEmpty) {
     return (
       <View style={styles.container}>
         <Text style={styles.noData}>No Data</Text>
@@ -42,5 +31,16 @@ const Todos = (): JSX.Element => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  noData: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+});
 
 export { Todos };

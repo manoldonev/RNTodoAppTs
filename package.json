@@ -15,9 +15,13 @@
   },
   "dependencies": {
     "@react-native-community/netinfo": "^8.2.0",
+    "immer": "^9.0.12",
     "msw": "^0.39.2",
     "react": "17.0.2",
     "react-native": "~0.68.0",
+    "react-native-gesture-handler": "^2.4.1",
+    "react-native-heroicons": "^2.1.0",
+    "react-native-svg": "^12.3.0",
     "react-query": "^3.34.20"
   },
   "devDependencies": {
