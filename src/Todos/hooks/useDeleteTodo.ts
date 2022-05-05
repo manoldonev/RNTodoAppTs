@@ -4,6 +4,7 @@ import { useQueryClient } from 'react-query';
 import type { QueryFilters } from 'react-query/types/core/utils';
 import type { DeleteTodoMutation, DeleteTodoMutationVariables, TodosQuery } from '../../generated';
 import { useDeleteTodoMutation } from '../../generated';
+import { todoKeys } from './queryKeysFactory';
 
 interface MutationContext {
   previousQueries: Array<[QueryKey, InfiniteData<TodosQuery>]>;
@@ -14,10 +15,10 @@ const useDeleteTodo = (): UseMutationResult<DeleteTodoMutation, Error, DeleteTod
 
   return useDeleteTodoMutation<Error, MutationContext>({
     onMutate: async ({ id }) => {
-      await queryClient.cancelQueries(['Todos.infinite']);
+      await queryClient.cancelQueries(todoKeys.all);
 
       const queryFilter: QueryFilters = {
-        queryKey: ['Todos.infinite'],
+        queryKey: todoKeys.all,
         active: true,
       };
 
@@ -50,10 +51,7 @@ const useDeleteTodo = (): UseMutationResult<DeleteTodoMutation, Error, DeleteTod
         queryClient.setQueryData(...query);
       });
     },
-    onSettled: async () => {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      queryClient.invalidateQueries(['Todos.infinite']);
-    },
+    onSettled: async () => queryClient.invalidateQueries(todoKeys.all),
   });
 };
 
