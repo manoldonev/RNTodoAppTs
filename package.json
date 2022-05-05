@@ -6,7 +6,7 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "test": "jest --watchAll --detectOpenHandles",
     "test:related": "npm run test -- --bail --watchAll=false --findRelatedTests src/**/*.{ts,tsx} --passWithNoTests --forceExit",
     "prettier": "prettier --check src",
