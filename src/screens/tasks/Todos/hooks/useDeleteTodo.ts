@@ -2,9 +2,9 @@ import { produce } from 'immer';
 import type { InfiniteData, QueryKey, UseMutationResult } from 'react-query';
 import { useQueryClient } from 'react-query';
 import type { QueryFilters } from 'react-query/types/core/utils';
-import type { DeleteTodoMutation, DeleteTodoMutationVariables, TodosQuery } from '../../generated';
-import { useDeleteTodoMutation } from '../../generated';
-import { todoKeys } from './queryKeysFactory';
+import type { DeleteTodoMutation, DeleteTodoMutationVariables, TodosQuery } from '../../../../generated';
+import { useDeleteTodoMutation } from '../../../../generated';
+import { todoKeys } from '../queryKeysFactory';
 
 interface MutationContext {
   previousQueries: Array<[QueryKey, InfiniteData<TodosQuery>]>;

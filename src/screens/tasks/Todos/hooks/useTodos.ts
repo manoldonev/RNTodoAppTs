@@ -1,6 +1,6 @@
 import type { InfiniteData } from 'react-query';
-import type { TodosQuery } from '../../generated';
-import { useInfiniteTodosQuery } from '../../generated';
+import type { TodosQuery } from '../../../../generated';
+import { useInfiniteTodosQuery } from '../../../../generated';
 
 const pageIndex = 1;
 const pageSize = 10;

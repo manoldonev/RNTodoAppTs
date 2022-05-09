@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
-
 import { App } from './App';
 
 describe('Todo App', () => {
