@@ -108,7 +108,8 @@
       {
         "checksVoidReturn": false
       }
-    ]
+    ],
+    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }]
   },
   "settings": {
     "import/ignore": ["node_modules/react-native/index\\.js$"]
