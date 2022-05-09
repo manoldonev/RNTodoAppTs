@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, Animated, useWindowDimensions, LayoutAnimation } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { TrashIcon } from 'react-native-heroicons/outline';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { useDeleteTodo, useUpdateTodo } from './hooks';
 
 type RenderActionFunction = (
@@ -27,7 +27,7 @@ const renderUnderlay = (screenWidth: number, position: 'left' | 'right' = 'left'
     return (
       <Animated.View style={[styles.underlayContainer, { alignItems }]}>
         <Animated.View style={{ transform: [{ scale }], ...margin }}>
-          <TrashIcon size={32} color="white" />
+          <Icon name="trash-outline" size={32} color="white" />
         </Animated.View>
       </Animated.View>
     );
@@ -66,7 +66,7 @@ const TodoItem = ({
     >
       <RectButton onPress={toggleItem}>
         <Animated.View style={[styles.item]}>
-          <Text style={[data.done && styles.strikeThrough]}>{`Lorem Ipsum #${data.id}`}</Text>
+          <Text style={[styles.taskHeader, data.done && styles.strikeThrough]}>{`Lorem Ipsum #${data.id}`}</Text>
           <Text style={[styles.task, data.done && styles.strikeThrough]} numberOfLines={3}>
             {data.task}
           </Text>
@@ -86,8 +86,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
   },
+  taskHeader: {
+    color: '#000000',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   task: {
     fontSize: 20,
+    color: '#000000',
   },
   strikeThrough: { textDecorationLine: 'line-through' },
   underlayContainer: {
