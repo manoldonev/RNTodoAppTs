@@ -1,20 +1,14 @@
 import React from 'react';
+import type { ViewStyle } from 'react-native';
 import { StyleSheet, useWindowDimensions } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { renderUnderlay } from './utils';
 
-const SwipeToAction = ({
-  children,
-  onSwiped,
-}: {
-  children: React.ReactNode;
-  onSwiped?: ((direction: 'left' | 'right') => void) | undefined;
-}): JSX.Element => {
-  const { width: screenWidth } = useWindowDimensions();
+const useThemedStyles = (): { underlayContainer: ViewStyle } => {
   const { colors } = useTheme();
 
-  const styles = React.useMemo(
+  return React.useMemo(
     () =>
       StyleSheet.create({
         underlayContainer: {
@@ -25,6 +19,17 @@ const SwipeToAction = ({
       }),
     [colors],
   );
+};
+
+const SwipeToAction = ({
+  children,
+  onSwiped,
+}: {
+  children: React.ReactNode;
+  onSwiped?: ((direction: 'left' | 'right') => void) | undefined;
+}): JSX.Element => {
+  const { width: screenWidth } = useWindowDimensions();
+  const styles = useThemedStyles();
 
   return (
     <Swipeable

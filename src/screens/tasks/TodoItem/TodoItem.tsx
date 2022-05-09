@@ -1,20 +1,20 @@
 import React from 'react';
+import type { ViewStyle, TextStyle } from 'react-native';
 import { StyleSheet, Text, Animated, LayoutAnimation } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useDeleteTodo, useUpdateTodo } from '../Todos/hooks';
 import { SwipeToAction } from '../../../components/SwipeToAction';
 
-const TodoItem = ({
-  data,
-}: {
-  data: { id: string; task: string; done: boolean } | undefined | null;
-}): JSX.Element | null => {
-  const { mutate: updateTodo } = useUpdateTodo();
-  const { mutate: deleteTodo } = useDeleteTodo();
+const useThemedStyles = (): {
+  item: ViewStyle;
+  taskHeader: TextStyle;
+  task: TextStyle;
+  strikeThrough: TextStyle;
+} => {
   const { colors } = useTheme();
 
-  const styles = React.useMemo(
+  return React.useMemo(
     () =>
       StyleSheet.create({
         item: {
@@ -36,14 +36,19 @@ const TodoItem = ({
           fontSize: 20,
         },
         strikeThrough: { textDecorationLine: 'line-through' },
-        underlayContainer: {
-          backgroundColor: colors.notification,
-          flex: 1,
-          justifyContent: 'center',
-        },
       }),
     [colors],
   );
+};
+
+const TodoItem = ({
+  data,
+}: {
+  data: { id: string; task: string; done: boolean } | undefined | null;
+}): JSX.Element | null => {
+  const { mutate: updateTodo } = useUpdateTodo();
+  const { mutate: deleteTodo } = useDeleteTodo();
+  const styles = useThemedStyles();
 
   if (data == null) {
     return null;
