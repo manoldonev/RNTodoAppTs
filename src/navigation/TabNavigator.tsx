@@ -31,7 +31,6 @@ const TabNavigator = (): JSX.Element => {
 
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#004968',
         tabBarLabelStyle: [Platform.OS === 'android' && { marginBottom: 2 }],
       })}
     >
