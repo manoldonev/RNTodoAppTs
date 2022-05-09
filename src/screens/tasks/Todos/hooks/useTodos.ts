@@ -12,6 +12,7 @@ const useTodos = (): {
   loadMore: () => void;
   isLoading: boolean;
   isFetchingNextPage: boolean;
+  isEmpty: boolean;
 } => {
   const queryVariables = {
     page: pageIndex,
@@ -42,7 +43,9 @@ const useTodos = (): {
     }
   };
 
-  return { data, loadMore, isLoading, isFetchingNextPage };
+  const isEmpty = !isLoading && (data == null || data.pages.length === 0 || data.pages[0].todos?.length === 0);
+
+  return { data, loadMore, isLoading, isFetchingNextPage, isEmpty };
 };
 
 export { useTodos };
