@@ -5,5 +5,13 @@
   "files.eol": "\n",
   "editor.tabSize": 2,
   "editor.wordWrap": "bounded",
-  "editor.wordWrapColumn": 120
+  "editor.wordWrapColumn": 120,
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "style"],
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)", // tw`...`
+    "tw=\"([^\"]*)", // <div tw="..." />
+    "tw={\"([^\"}]*)", // <div tw={"..."} />
+    "tw\\.\\w+`([^`]*)", // tw.xxx`...`
+    "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+  ]
 }
