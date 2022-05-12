@@ -2,16 +2,24 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Platform } from 'react-native';
 import { AnalyticsScreen, SettingsScreen, TasksScreen } from '../screens';
+import { useTailwind } from '../styling';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = (): JSX.Element => {
+  const tw = useTailwind();
+
   return (
     <Tab.Navigator
       initialRouteName="Tasks"
       screenOptions={({ route }) => ({
+        headerStyle: tw`bg-primary`,
+        headerTitleStyle: tw`text-on-primary`,
+        tabBarStyle: tw`bg-primary`,
+        tabBarLabelStyle: tw`android:mb-0.5`,
+        tabBarActiveTintColor: tw.color('text-on-primary'),
+        tabBarInactiveTintColor: tw.color('text-on-primary-variant'),
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
@@ -31,7 +39,6 @@ const TabNavigator = (): JSX.Element => {
 
           return <Icon name={iconName} size={size} color={color} />;
         },
-        tabBarLabelStyle: [Platform.OS === 'android' && { marginBottom: 2 }],
       })}
     >
       <Tab.Screen name="Tasks" component={TasksScreen} options={{ headerShown: false }} />

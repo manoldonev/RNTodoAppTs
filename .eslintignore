@@ -1,2 +1,4 @@
 /src/generated/**/*.ts
+index.js
 *.config.js
+
