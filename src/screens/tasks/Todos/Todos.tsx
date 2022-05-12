@@ -1,19 +1,21 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
 import { useTodos } from './hooks';
 import { TodoItem } from '../TodoItem';
+import { useTailwind } from '../../../styling';
 
 const Todos = (): JSX.Element => {
+  const tw = useTailwind();
   const ref = React.useRef(null);
   useScrollToTop(ref);
   const { data, loadMore, isLoading, isFetchingNextPage, isEmpty } = useTodos();
 
   if (isEmpty) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.noData}>No Data</Text>
+      <View style={tw`flex-1 justify-center`}>
+        <Text style={tw`text-lg text-center`}>No Data</Text>
       </View>
     );
   }
@@ -26,24 +28,11 @@ const Todos = (): JSX.Element => {
       renderItem={({ item }) => <TodoItem data={item} />}
       onEndReached={loadMore}
       onEndReachedThreshold={0.5}
-      ListFooterComponent={
-        isFetchingNextPage ? <ActivityIndicator size="large" style={{ paddingVertical: 10 }} /> : null
-      }
+      ListFooterComponent={isFetchingNextPage ? <ActivityIndicator size="large" style={tw`py-2.5`} /> : null}
       ListEmptyComponent={<ActivityIndicator size="large" />}
-      contentContainerStyle={isLoading && { flex: 1, justifyContent: 'center' }}
+      contentContainerStyle={[isLoading && tw`flex-1 justify-center`]}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  noData: {
-    fontSize: 18,
-    textAlign: 'center',
-  },
-});
 
 export { Todos };

@@ -4,10 +4,11 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Platform, UIManager, useColorScheme } from 'react-native';
+import { Platform, UIManager } from 'react-native';
+import { useDeviceContext } from 'twrnc';
 import { useRefetchOnAppFocus, useRefetchOnReconnect } from './hooks';
 import { TabNavigator } from '../navigation';
-import { DarkTheme, LightTheme } from '../theming';
+import { useTailwind } from '../styling';
 
 const queryClient = new QueryClient();
 
@@ -16,7 +17,9 @@ if (Platform.OS === 'android') {
 }
 
 const App = (): JSX.Element => {
-  const scheme = useColorScheme();
+  const tw = useTailwind();
+  useDeviceContext(tw);
+
   useRefetchOnReconnect();
   useRefetchOnAppFocus();
 
@@ -24,7 +27,7 @@ const App = (): JSX.Element => {
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <NavigationContainer theme={scheme === 'dark' ? DarkTheme : LightTheme}>
+          <NavigationContainer>
             <TabNavigator />
           </NavigationContainer>
         </GestureHandlerRootView>

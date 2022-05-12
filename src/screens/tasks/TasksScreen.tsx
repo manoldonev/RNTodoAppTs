@@ -1,16 +1,25 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import { Text } from 'react-native';
-import { useTheme } from '@react-navigation/native';
+import type { StatusBarStyle } from 'react-native';
+import { Platform, Text, useColorScheme } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
+import { useTailwind } from '../../styling';
 import { Todos } from './Todos';
 
 const TasksScreen = (): JSX.Element => {
-  const { colors } = useTheme();
+  const tw = useTailwind();
+  const scheme = useColorScheme();
+
+  let barStyle: StatusBarStyle = 'default';
+  if (Platform.OS === 'android') {
+    barStyle = scheme === 'dark' ? 'dark-content' : 'light-content';
+  }
 
   return (
-    <SafeAreaView edges={['top', 'left', 'right']} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ color: colors.text }}>Todo App</Text>
+    <SafeAreaView edges={['top', 'left', 'right']} style={tw`flex-1 justify-center items-center bg-background`}>
+      <FocusAwareStatusBar barStyle={barStyle} backgroundColor={tw.color('bg-primary')} />
+      <Text style={tw`text-on-primary-container`}>Todo App</Text>
       <Todos />
     </SafeAreaView>
   );
