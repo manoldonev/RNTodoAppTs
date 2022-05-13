@@ -1,14 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import React from 'react';
-import { useColorScheme } from 'react-native';
 import type { TailwindFn } from 'twrnc';
 import { create } from 'twrnc';
-import { DarkTheme, LightTheme } from './themes';
+import { DarkTheme, LightTheme } from './Themes';
+import { useActiveColorScheme } from './hooks/useActiveColorScheme';
 
 const TailwindContext = React.createContext<TailwindFn | null>(null);
 
 const TailwindProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
-  const scheme = useColorScheme();
+  const scheme = useActiveColorScheme();
   const tw = React.useMemo(
     () =>
       create({
@@ -20,13 +19,4 @@ const TailwindProvider = ({ children }: { children: React.ReactNode }): JSX.Elem
   return <TailwindContext.Provider value={tw}>{children}</TailwindContext.Provider>;
 };
 
-const useTailwind = (): TailwindFn => {
-  const context = React.useContext(TailwindContext);
-  if (context == null) {
-    throw new Error('useTailwind must be used within a TailwindProvider');
-  }
-
-  return context;
-};
-
-export { TailwindProvider, useTailwind };
+export { TailwindProvider, TailwindContext };
