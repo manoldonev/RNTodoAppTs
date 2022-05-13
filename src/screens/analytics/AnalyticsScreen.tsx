@@ -1,13 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import { Text, useColorScheme } from 'react-native';
+import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useTailwind } from '../../styling';
+import { useActiveColorScheme, useTailwind } from '../../styling';
 
 const AnalyticsScreen = (): JSX.Element => {
   const tw = useTailwind();
-  const scheme = useColorScheme();
+  const scheme = useActiveColorScheme();
 
   return (
     <SafeAreaView style={tw`flex-1 justify-center items-center bg-background`}>

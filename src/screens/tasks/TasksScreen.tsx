@@ -1,15 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import type { StatusBarStyle } from 'react-native';
-import { Platform, Text, useColorScheme } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useTailwind } from '../../styling';
+import { useActiveColorScheme, useTailwind } from '../../styling';
 import { Todos } from './Todos';
 
 const TasksScreen = (): JSX.Element => {
   const tw = useTailwind();
-  const scheme = useColorScheme();
+  const scheme = useActiveColorScheme();
 
   let barStyle: StatusBarStyle = 'default';
   if (Platform.OS === 'android') {

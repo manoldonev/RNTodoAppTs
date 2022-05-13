@@ -20,6 +20,7 @@ export const LightTheme: TwTheme = {
     surface: '#FFFBFE',
     'on-surface': '#1D1B16',
     outline: '#79747E',
+    'outline-variant': '#bebebe',
   },
 };
 
@@ -43,5 +44,6 @@ export const DarkTheme: TwTheme = {
     surface: '#2C2C2C',
     'on-surface': '#E8E2D9',
     outline: '#938F99',
+    'outline-variant': '#938F99DE',
   },
 };
