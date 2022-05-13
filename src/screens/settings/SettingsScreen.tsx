@@ -24,7 +24,7 @@ const SettingsScreen = (): JSX.Element => {
         <Text style={tw`text-xl text-on-primary-container`}>Use device theme ({preferredScheme}):</Text>
         <Switch
           value={isPreferredSchemeEnabled}
-          onValueChange={(newValue) => setAppScheme(newValue ? null : activeScheme)}
+          onValueChange={(newValue) => setAppScheme(newValue ? undefined : activeScheme)}
           trackColor={{ false: tw.color('bg-outline-variant'), true: tw.color('bg-outline-variant') }}
           thumbColor={tw.color('secondary')}
           ios_backgroundColor={tw.color('bg-outline-variant')}

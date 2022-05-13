@@ -1,12 +1,12 @@
-import type { ColorSchemeName } from 'react-native';
 import { useColorScheme } from 'react-native';
+import type { ColorScheme } from './useAppColorScheme';
 import { useAppColorScheme } from './useAppColorScheme';
 
-const useActiveColorScheme = (): ColorSchemeName => {
+const useActiveColorScheme = (): ColorScheme => {
   const preferredScheme = useColorScheme();
   const [appScheme] = useAppColorScheme();
 
-  return appScheme ?? preferredScheme;
+  return appScheme ?? preferredScheme ?? undefined;
 };
 
 export { useActiveColorScheme };

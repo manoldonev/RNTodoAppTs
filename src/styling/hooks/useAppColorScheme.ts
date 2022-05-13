@@ -1,13 +1,16 @@
-import type { ColorSchemeName } from 'react-native';
-import { useStorage } from '../../hooks/useStorage';
+import { useMMKVString } from 'react-native-mmkv';
 
 const useAppColorScheme = (): readonly [
-  ColorSchemeName,
-  (value: ColorSchemeName | ((prevValue: ColorSchemeName) => ColorSchemeName)) => void,
+  ColorScheme,
+  (value: ColorScheme | ((current: ColorScheme) => ColorScheme) | undefined) => void,
 ] => {
-  const [appScheme, setAppScheme] = useStorage<ColorSchemeName>('color-scheme', null);
+  const [appScheme, setAppScheme] = useMMKVString('color.scheme');
 
-  return [appScheme, setAppScheme];
+  return [
+    appScheme as ColorScheme,
+    setAppScheme as (value: ColorScheme | ((current: ColorScheme) => ColorScheme) | undefined) => void,
+  ] as const;
 };
 
+export type ColorScheme = 'light' | 'dark' | undefined;
 export { useAppColorScheme };

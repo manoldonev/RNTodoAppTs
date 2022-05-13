@@ -1,8 +1,8 @@
 import React from 'react';
-import type { TailwindFn } from 'twrnc';
 import { create } from 'twrnc';
-import { DarkTheme, LightTheme } from './Themes';
+import type { TailwindFn } from 'twrnc';
 import { useActiveColorScheme } from './hooks/useActiveColorScheme';
+import { DarkTheme, LightTheme } from './TailwindConfig';
 
 const TailwindContext = React.createContext<TailwindFn | null>(null);
 
