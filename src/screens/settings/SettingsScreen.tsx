@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import { Switch, Text, useColorScheme, View } from 'react-native';
+import { Platform, Switch, Text, useColorScheme, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
 import { useActiveColorScheme, useAppColorScheme, useTailwind } from '../../styling';
@@ -37,7 +37,11 @@ const SettingsScreen = (): JSX.Element => {
           onValueChange={(newValue) => setAppScheme(newValue ? 'dark' : 'light')}
           disabled={isPreferredSchemeEnabled}
           trackColor={{ false: tw.color('bg-outline-variant'), true: tw.color('bg-outline-variant') }}
-          thumbColor={tw.color('secondary')}
+          thumbColor={
+            isPreferredSchemeEnabled && Platform.OS === 'android'
+              ? tw.color('secondary-variant')
+              : tw.color('secondary')
+          }
           ios_backgroundColor={tw.color('bg-outline-variant')}
         />
       </View>
