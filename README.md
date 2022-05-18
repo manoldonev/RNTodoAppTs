@@ -21,7 +21,7 @@
 
 ## Navigation
 
-- React Navigation v5
+- React Navigation v6
 
 ## Testing
 
