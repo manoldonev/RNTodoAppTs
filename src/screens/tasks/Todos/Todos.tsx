@@ -4,7 +4,7 @@ import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
 import { useTodos } from './hooks';
 import { TodoItem } from '../TodoItem';
-import { useTailwind } from '../../../styling';
+import { useTailwind } from '../../../theming';
 
 const Todos = (): JSX.Element => {
   const tw = useTailwind();

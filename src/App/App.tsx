@@ -8,7 +8,7 @@ import { Platform, UIManager } from 'react-native';
 import { useDeviceContext } from 'twrnc';
 import { useRefetchOnAppFocus, useRefetchOnReconnect } from './hooks';
 import { TabNavigator } from '../navigation';
-import { useTailwind } from '../styling';
+import { useTailwind } from '../theming';
 
 const queryClient = new QueryClient();
 

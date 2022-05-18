@@ -352,6 +352,13 @@ export type _Service = {
   sdl?: Maybe<Scalars['String']>;
 };
 
+export type CreateTodoMutationVariables = Exact<{
+  input: CreateTodoInput;
+}>;
+
+
+export type CreateTodoMutation = { __typename?: 'Mutation', createTodo: { __typename?: 'Todo', id: string, task: string, done: boolean } };
+
 export type DeleteTodoMutationVariables = Exact<{
   id: Scalars['ID'];
 }>;
@@ -379,6 +386,24 @@ export type UpdateTodoMutationVariables = Exact<{
 export type UpdateTodoMutation = { __typename?: 'Mutation', updateTodo: { __typename?: 'Todo', id: string, task: string, done: boolean } };
 
 
+export const CreateTodoDocument = `
+    mutation createTodo($input: CreateTodoInput!) {
+  createTodo(input: $input) {
+    id
+    task
+    done
+  }
+}
+    `;
+export const useCreateTodoMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(options?: UseMutationOptions<CreateTodoMutation, TError, CreateTodoMutationVariables, TContext>) =>
+    useMutation<CreateTodoMutation, TError, CreateTodoMutationVariables, TContext>(
+      ['createTodo'],
+      (variables?: CreateTodoMutationVariables) => fetcher<CreateTodoMutation, CreateTodoMutationVariables>(CreateTodoDocument, variables)(),
+      options
+    );
 export const DeleteTodoDocument = `
     mutation deleteTodo($id: ID!) {
   deleteTodo(id: $id)
@@ -446,6 +471,23 @@ export const useUpdateTodoMutation = <
       (variables?: UpdateTodoMutationVariables) => fetcher<UpdateTodoMutation, UpdateTodoMutationVariables>(UpdateTodoDocument, variables)(),
       options
     );
+
+/**
+ * @param resolver a function that accepts a captured request and may return a mocked response.
+ * @see https://mswjs.io/docs/basics/response-resolver
+ * @example
+ * mockCreateTodoMutation((req, res, ctx) => {
+ *   const { input } = req.variables;
+ *   return res(
+ *     ctx.data({ createTodo })
+ *   )
+ * })
+ */
+export const mockCreateTodoMutation = (resolver: ResponseResolver<GraphQLRequest<CreateTodoMutationVariables>, GraphQLContext<CreateTodoMutation>, any>) =>
+  graphql.mutation<CreateTodoMutation, CreateTodoMutationVariables>(
+    'createTodo',
+    resolver
+  )
 
 /**
  * @param resolver a function that accepts a captured request and may return a mocked response.

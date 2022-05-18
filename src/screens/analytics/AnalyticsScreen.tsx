@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useActiveColorScheme, useTailwind } from '../../styling';
+import { useActiveColorScheme, useTailwind } from '../../theming';
 
 const AnalyticsScreen = (): JSX.Element => {
   const tw = useTailwind();

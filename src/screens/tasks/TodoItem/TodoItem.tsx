@@ -4,7 +4,7 @@ import { Text, Animated, LayoutAnimation } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useDeleteTodo, useUpdateTodo } from '../Todos/hooks';
 import { SwipeToAction } from '../../../components/SwipeToAction';
-import { useTailwind } from '../../../styling';
+import { useTailwind } from '../../../theming';
 
 const TodoItem = ({
   data,

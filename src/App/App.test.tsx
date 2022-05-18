@@ -2,14 +2,14 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
 import { App } from './App';
-import { TailwindProvider } from '../styling';
+import { ThemingProvider } from '../theming';
 
 describe('Todo App', () => {
   test('renders correctly', async () => {
     const { getByText } = render(
-      <TailwindProvider>
+      <ThemingProvider>
         <App />
-      </TailwindProvider>,
+      </ThemingProvider>,
     );
 
     const titleElement = getByText(/todo app/i);

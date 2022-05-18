@@ -1,4 +1,4 @@
-import './jest.mock.types';
+import './jest.mock';
 import '@testing-library/jest-native/extend-expect';
 import 'react-native-gesture-handler/jestSetup';
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock';

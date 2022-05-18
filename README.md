@@ -11,7 +11,7 @@
 
 ## UX & Theming
 
-- Material Design System powered by Tailwind (with custom "branding" color palettes)
+- Material Design System powered by Tailwind and React Native Paper (with custom "branding" color palettes)
 - Dark Mode Support
 
 ## Data (Async State Management)
@@ -21,7 +21,7 @@
 
 ## Navigation
 
-- React Navigation v5
+- React Navigation v6
 
 ## Testing
 
