@@ -9,7 +9,7 @@ const AnalyticsScreen = (): JSX.Element => {
   const scheme = useActiveColorScheme();
 
   return (
-    <SafeAreaView style={tw`flex-1 justify-center items-center bg-background`}>
+    <SafeAreaView style={tw`items-center justify-center flex-1 bg-background`}>
       <FocusAwareStatusBar
         barStyle={scheme === 'dark' ? 'dark-content' : 'light-content'}
         backgroundColor={tw.color('bg-primary')}

@@ -13,7 +13,7 @@ const Todos = (): JSX.Element => {
 
   if (isEmpty) {
     return (
-      <View style={tw`flex-1 justify-center`}>
+      <View style={tw`justify-center flex-1`}>
         <Text style={tw`text-lg text-center`}>No Data</Text>
       </View>
     );
@@ -30,7 +30,7 @@ const Todos = (): JSX.Element => {
       onEndReachedThreshold={0.5}
       ListFooterComponent={isFetchingNextPage ? <ActivityIndicator size="large" style={tw`py-2.5`} /> : null}
       ListEmptyComponent={<ActivityIndicator size="large" />}
-      contentContainerStyle={[isLoading && tw`flex-1 justify-center`]}
+      contentContainerStyle={[isLoading && tw`justify-center flex-1`]}
     />
   );
 };

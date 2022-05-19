@@ -12,14 +12,14 @@ const TasksHomeScreen = ({ navigation }: TasksHomeProps): JSX.Element => {
   const activeScheme = useActiveColorScheme();
 
   return (
-    <SafeAreaView edges={['left', 'right']} style={tw`flex-1 justify-center items-center bg-background py-1.5`}>
+    <SafeAreaView edges={['left', 'right']} style={tw`flex-1 items-center justify-center bg-background py-1.5`}>
       <FocusAwareStatusBar
         barStyle={activeScheme === 'dark' ? 'dark-content' : 'light-content'}
         backgroundColor={tw.color('bg-primary')}
       />
       <Todos />
       <FAB
-        style={tw`bg-secondary absolute bottom-0 right-0 m-5`}
+        style={tw`absolute bottom-0 right-0 m-5 bg-secondary`}
         small={false}
         icon={() => <Icon color={tw.color('on-secondary')} name="add-outline" size={24} />}
         onPress={() => navigation.navigate('TasksNew')}
