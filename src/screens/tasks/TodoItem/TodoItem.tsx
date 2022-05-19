@@ -32,7 +32,7 @@ const TodoItem = ({
       <RectButton onPress={toggleItem}>
         <Animated.View style={tw`bg-primary-container border rounded-lg border-outline my-1.5 mx-3 p-2.5`}>
           <Text
-            style={[tw`text-on-primary-container text-lg font-bold`, data.done && tw`line-through`]}
+            style={[tw`text-lg font-bold text-on-primary-container`, data.done && tw`line-through`]}
           >{`Lorem Ipsum #${data.id}`}</Text>
           <Text style={[tw`text-on-primary-container`, data.done && tw`line-through`]} numberOfLines={3}>
             {data.task}

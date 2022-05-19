@@ -64,7 +64,7 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
 
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={tw`flex-1 justify-center items-center bg-surface p-6`}
+        style={tw`items-center justify-center flex-1 p-6 bg-surface`}
       >
         <Controller
           name="title"
@@ -77,7 +77,7 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
                 onBlur={onBlur}
                 placeholder="Title"
                 placeholderTextColor={tw.color('text-outline')}
-                style={tw`rounded-md border border-outline h-12 w-full px-3 bg-primary-container text-on-primary-container text-lg`}
+                style={tw`w-full h-12 px-3 text-lg border rounded-md border-outline bg-primary-container text-on-primary-container`}
                 clearButtonMode="while-editing"
                 keyboardAppearance={scheme}
               />
@@ -102,7 +102,7 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
               maxLength={20000}
               placeholder="Note"
               placeholderTextColor={tw.color('text-outline')}
-              style={tw`mt-4 rounded-md border border-outline w-full px-3 bg-primary-container text-on-primary-container text-lg ios:h-32`}
+              style={tw`w-full px-3 mt-4 text-lg border rounded-md ios:h-32 border-outline bg-primary-container text-on-primary-container`}
               keyboardAppearance={scheme}
             />
           )}
@@ -111,17 +111,17 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
           <Text style={tw`text-sm text-error`}>{errors.note.message}</Text>
         )}
 
-        <View style={tw`w-full mt-4 flex-row justify-around`}>
+        <View style={tw`flex-row justify-around w-full mt-4`}>
           <Button
             mode="contained"
-            style={tw`bg-primary w-24`}
+            style={tw`w-24 bg-primary`}
             labelStyle={tw`text-on-primary`}
             onPress={handleSubmit(onSubmit)}
           >
             Save
           </Button>
           <Button
-            style={tw`bg-transparent border border-primary w-24`}
+            style={tw`w-24 bg-transparent border border-primary`}
             labelStyle={tw`text-primary`}
             onPress={() => navigation.goBack()}
           >

@@ -12,12 +12,12 @@ const SettingsScreen = (): JSX.Element => {
   const isPreferredSchemeEnabled = appScheme == null;
 
   return (
-    <SafeAreaView edges={['left', 'right']} style={tw`flex-1 bg-background px-3`}>
+    <SafeAreaView edges={['left', 'right']} style={tw`flex-1 px-3 bg-background`}>
       <FocusAwareStatusBar
         barStyle={activeScheme === 'dark' ? 'dark-content' : 'light-content'}
         backgroundColor={tw.color('bg-primary')}
       />
-      <View style={tw`flex rounded-lg p-2 my-6 flex-row justify-between bg-primary-container border border-outline`}>
+      <View style={tw`flex flex-row justify-between p-2 my-6 border rounded-lg border-outline bg-primary-container`}>
         <Text style={tw`text-xl text-on-primary-container`}>Use device theme ({preferredScheme}):</Text>
         <Switch
           value={isPreferredSchemeEnabled}
@@ -27,7 +27,7 @@ const SettingsScreen = (): JSX.Element => {
           ios_backgroundColor={tw.color('bg-outline-variant')}
         />
       </View>
-      <View style={tw`flex rounded-lg p-2 flex-row justify-between bg-primary-container border border-outline`}>
+      <View style={tw`flex flex-row justify-between p-2 border rounded-lg bg-primary-container border-outline`}>
         <Text style={tw`text-xl text-on-primary-container`}>Dark theme:</Text>
         <Switch
           value={activeScheme === 'dark'}
