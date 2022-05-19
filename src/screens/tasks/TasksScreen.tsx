@@ -1,27 +1,28 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
-import type { StatusBarStyle } from 'react-native';
-import { Platform, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useActiveColorScheme, useTailwind } from '../../styling';
-import { Todos } from './Todos';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TasksHomeScreen } from './TasksHomeScreen';
+import { TasksNewScreen } from './TasksNewScreen';
+import { useTailwind } from '../../theming';
+import type { TasksStackParamList } from './types';
+
+const TasksStack = createNativeStackNavigator<TasksStackParamList>();
 
 const TasksScreen = (): JSX.Element => {
   const tw = useTailwind();
-  const scheme = useActiveColorScheme();
-
-  let barStyle: StatusBarStyle = 'default';
-  if (Platform.OS === 'android') {
-    barStyle = scheme === 'dark' ? 'dark-content' : 'light-content';
-  }
 
   return (
-    <SafeAreaView edges={['top', 'left', 'right']} style={tw`flex-1 justify-center items-center bg-background`}>
-      <FocusAwareStatusBar barStyle={barStyle} backgroundColor={tw.color('bg-primary')} />
-      <Text style={tw`text-on-primary-container`}>Todo App</Text>
-      <Todos />
-    </SafeAreaView>
+    <TasksStack.Navigator
+      screenOptions={() => ({
+        headerStyle: tw`bg-primary`,
+        headerTitleStyle: tw`text-on-primary`,
+      })}
+    >
+      <TasksStack.Screen name="TasksHome" component={TasksHomeScreen} options={{ headerTitle: 'Todo App' }} />
+      {/* TODO: Fullscreen modal not supported properly in Android, see https://github.com/react-navigation/react-navigation/issues/10417 (can be done but need to introduce additional stack navigator, and would break encapsulation as the modal dialog would be available outside the "Tasks" feature) */}
+      <TasksStack.Group screenOptions={{ presentation: 'modal' }}>
+        <TasksStack.Screen name="TasksNew" component={TasksNewScreen} options={{ headerTitle: 'Add New Item' }} />
+      </TasksStack.Group>
+    </TasksStack.Navigator>
   );
 };
 

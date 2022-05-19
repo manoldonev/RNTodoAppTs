@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { useIsFocused } from '@react-navigation/native';
 import type { StatusBarProps } from 'react-native';

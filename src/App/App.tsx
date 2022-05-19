@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -8,7 +7,7 @@ import { Platform, UIManager } from 'react-native';
 import { useDeviceContext } from 'twrnc';
 import { useRefetchOnAppFocus, useRefetchOnReconnect } from './hooks';
 import { TabNavigator } from '../navigation';
-import { useTailwind } from '../styling';
+import { useTailwind } from '../theming';
 
 const queryClient = new QueryClient();
 

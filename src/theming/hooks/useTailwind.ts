@@ -1,6 +1,6 @@
 import React from 'react';
 import type { TailwindFn } from 'twrnc';
-import { TailwindContext } from '../TailwindProvider';
+import { TailwindContext } from '../ThemingProvider';
 
 const useTailwind = (): TailwindFn => {
   const context = React.useContext(TailwindContext);

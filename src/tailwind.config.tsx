@@ -2,6 +2,7 @@ import type { TwTheme } from 'twrnc/dist/esm/tw-config';
 
 export const LightTheme: TwTheme = {
   colors: {
+    transparent: 'transparent',
     primary: '#006688',
     'on-primary': '#FFFFFF',
     'on-primary-variant': '#FFFFFFD0',
@@ -27,6 +28,7 @@ export const LightTheme: TwTheme = {
 
 export const DarkTheme: TwTheme = {
   colors: {
+    transparent: 'transparent',
     primary: '#6ED2FF',
     'on-primary': '#003549',
     'on-primary-variant': '#003549D0',

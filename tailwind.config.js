@@ -1,4 +1,4 @@
-// NOTE: do not provide color values here -- use src/styling/themes instead
+// NOTE: do not provide color values here -- use src/tailwind.config.tsx instead
 // placeholder config file so tailwindCSS vscode extension provides correct intellisense for the overwridden theme color keys (i.e. bg-primary vs bg-red-100 / bg-red-200, etc.)
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],

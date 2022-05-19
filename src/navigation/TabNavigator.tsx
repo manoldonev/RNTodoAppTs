@@ -1,9 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AnalyticsScreen, SettingsScreen, TasksScreen } from '../screens';
-import { useTailwind } from '../styling';
+import { useTailwind } from '../theming';
 
 const Tab = createBottomTabNavigator();
 

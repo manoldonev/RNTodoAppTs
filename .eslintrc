@@ -30,7 +30,10 @@
     },
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
   "rules": {
     "@typescript-eslint/array-type": [
       "error",
@@ -90,7 +93,10 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsForRegex": ["^draft", "keys"]
+        "ignorePropertyModificationsForRegex": [
+          "^draft",
+          "keys"
+        ]
       }
     ],
     "react/function-component-definition": [
@@ -102,17 +108,35 @@
     ],
     "import/prefer-default-export": "off",
     "import/no-default-export": "error",
-    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "assert": "either"
+      }
+    ],
     "@typescript-eslint/no-misused-promises": [
       "error",
       {
         "checksVoidReturn": false
       }
     ],
-    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }]
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^React$"
+      }
+    ]
   },
   "settings": {
-    "import/ignore": ["node_modules/react-native/index\\.js$"]
+    "import/ignore": [
+      "node_modules/react-native/index\\.js$"
+    ]
   },
   // Map from global var to bool specifying if it can be redefined
   "globals": {

@@ -1,10 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
 import { useTodos } from './hooks';
 import { TodoItem } from '../TodoItem';
-import { useTailwind } from '../../../styling';
+import { useTailwind } from '../../../theming';
 
 const Todos = (): JSX.Element => {
   const tw = useTailwind();
@@ -22,6 +21,7 @@ const Todos = (): JSX.Element => {
 
   return (
     <FlatList
+      testID="todo-list"
       ref={ref}
       data={data?.pages.map((page) => page.todos).flat()}
       keyExtractor={(item, index) => (item != null ? item.id : index.toString())}
