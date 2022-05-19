@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React from 'react';
 import { Text, Animated, LayoutAnimation } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';

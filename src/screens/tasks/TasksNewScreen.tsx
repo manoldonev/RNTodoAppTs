@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react';
+import React from 'react';
 import { KeyboardAvoidingView, Platform, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';

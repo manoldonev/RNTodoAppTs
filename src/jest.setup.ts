@@ -1,6 +1,7 @@
 import './jest.mock';
 import '@testing-library/jest-native/extend-expect';
 import 'react-native-gesture-handler/jestSetup';
+import 'whatwg-fetch';
 import mockRNCNetInfo from '@react-native-community/netinfo/jest/netinfo-mock';
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 
