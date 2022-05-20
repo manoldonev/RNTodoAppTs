@@ -15,6 +15,7 @@ const TabNavigator = (): JSX.Element => {
       screenOptions={({ route }) => ({
         headerStyle: tw`bg-primary`,
         headerTitleStyle: tw`text-on-primary`,
+        // HACK: make sure to reflect any changes to tabBarStyle here in the "Add New Item" modal as well (ugly workaround to mimic fullscreen modal in Android)
         tabBarStyle: tw`bg-primary`,
         tabBarLabelStyle: tw`android:mb-0.5`,
         tabBarActiveTintColor: tw.color('text-on-primary'),

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { KeyboardAvoidingView, Platform, Text, TextInput, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -54,6 +54,17 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
     createTodo({ input: { task: data.note || data.title, done: false, user_id: '1' } });
     navigation.goBack();
   };
+
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      // HACK: hide the tabBar of the parent navigator to mimic a fullscreen modal in Android (iOS supports this out-of-the-box)
+      navigation.getParent()?.setOptions({ tabBarStyle: tw`hidden` });
+
+      // HACK: we need to restore the tabBar of the parent navigator upon closing the modal, however, at this point we lost the original tabBarStyle value -- make sure to reflect any changes to tabBarStyle here in the root TabNavigator as well
+      return () => navigation.getParent()?.setOptions({ tabBarStyle: tw`bg-primary` });
+    }
+  });
 
   return (
     <SafeAreaView edges={['left', 'right', 'bottom']} style={tw`flex-1`}>
