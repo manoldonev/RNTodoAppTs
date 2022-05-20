@@ -1,13 +1,33 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
+import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { App } from './App';
 import { ThemingProvider } from '../theming';
+
+setLogger({
+  // eslint-disable-next-line no-console
+  log: console.log,
+  // eslint-disable-next-line no-console
+  warn: console.warn,
+  error: () => {},
+});
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      cacheTime: Infinity,
+    },
+  },
+});
 
 describe('Todo App', () => {
   test('renders correctly', async () => {
     const { getByTestId } = render(
       <ThemingProvider>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </ThemingProvider>,
     );
 
