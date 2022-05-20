@@ -15,6 +15,7 @@ const TasksScreen = (): JSX.Element => {
       screenOptions={() => ({
         headerStyle: tw`bg-primary`,
         headerTitleStyle: tw`text-on-primary`,
+        headerTintColor: tw.color('text-on-primary'),
       })}
     >
       <TasksStack.Screen name="TasksHome" component={TasksHomeScreen} options={{ headerTitle: 'Todo App' }} />
