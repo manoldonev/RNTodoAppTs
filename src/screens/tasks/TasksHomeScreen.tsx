@@ -12,7 +12,7 @@ const TasksHomeScreen = ({ navigation }: TasksHomeProps): JSX.Element => {
   const activeScheme = useActiveColorScheme();
 
   return (
-    <SafeAreaView edges={['left', 'right']} style={tw`flex-1 items-center justify-center bg-background py-1.5`}>
+    <SafeAreaView edges={['left', 'right']} style={tw`items-center justify-center flex-1 bg-background`}>
       <FocusAwareStatusBar
         barStyle={activeScheme === 'dark' ? 'dark-content' : 'light-content'}
         backgroundColor={tw.color('bg-primary')}

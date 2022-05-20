@@ -1,4 +1,5 @@
 import { setupServer } from 'msw/node';
 import { handlers } from './handlers';
 
-export const server = setupServer(...handlers);
+// enables requests interception in node environment (jest tests)
+export const testServer = setupServer(...handlers);
