@@ -67,7 +67,7 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
   });
 
   return (
-    <SafeAreaView edges={['left', 'right', 'bottom']} style={tw`flex-1`}>
+    <SafeAreaView edges={['left', 'right', 'bottom']} style={tw`flex-1 bg-background`}>
       <FocusAwareStatusBar
         barStyle={scheme === 'dark' ? 'dark-content' : 'light-content'}
         backgroundColor={tw.color('bg-primary')}
@@ -75,7 +75,7 @@ const TasksNewScreen = ({ navigation }: TasksNewProps): JSX.Element => {
 
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={tw`items-center justify-center flex-1 p-6 bg-surface`}
+        style={tw`items-center justify-center flex-1 p-6`}
       >
         <Controller
           name="title"
