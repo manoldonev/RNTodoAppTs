@@ -2,14 +2,17 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { FAB } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useActiveColorScheme, useTailwind } from '../../theming';
+import { FocusAwareStatusBar } from '@components/FocusAwareStatusBar';
+import { useActiveColorScheme, useTailwind } from '@theming';
 import { Todos } from './Todos';
 import type { TasksHomeProps } from './types';
+import { useSearchBar } from './hooks';
 
 const TasksHomeScreen = ({ navigation }: TasksHomeProps): JSX.Element => {
   const tw = useTailwind();
   const activeScheme = useActiveColorScheme();
+
+  useSearchBar(navigation);
 
   return (
     <SafeAreaView edges={['left', 'right']} style={tw`items-center justify-center flex-1 bg-background`}>

@@ -6,9 +6,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import type { SubmitHandler } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
-import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useActiveColorScheme, useTailwind } from '../../theming';
-import { useCreateTodo } from './Todos/hooks';
+import { FocusAwareStatusBar } from '@components/FocusAwareStatusBar';
+import { useActiveColorScheme, useTailwind } from '@theming';
+import { useCreateTodo } from './Todos/query';
 import type { TasksNewProps } from './types';
 
 const validationSchema = yup.object().shape(

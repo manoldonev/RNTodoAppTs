@@ -1,4 +1,4 @@
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type TasksStackParamList = {
   TasksHome: undefined;
@@ -6,5 +6,7 @@ export type TasksStackParamList = {
 };
 
 export type TasksHomeProps = NativeStackScreenProps<TasksStackParamList, 'TasksHome'>;
+
+export type TasksHomeNavigationProp = NativeStackNavigationProp<TasksStackParamList, 'TasksHome'>;
 
 export type TasksNewProps = NativeStackScreenProps<TasksStackParamList, 'TasksNew'>;

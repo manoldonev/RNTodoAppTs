@@ -1,6 +1,8 @@
 import type { InfiniteData } from 'react-query';
-import type { TodosQuery } from '../../../../generated';
-import { useInfiniteTodosQuery } from '../../../../generated';
+import { useAtom } from 'jotai';
+import type { TodosQuery } from '@generated';
+import { useInfiniteTodosQuery } from '@generated';
+import { queryAtom } from '../../atoms';
 
 const pageIndex = 1;
 const pageSize = 10;
@@ -14,11 +16,19 @@ const useTodos = (): {
   isFetchingNextPage: boolean;
   isEmpty: boolean;
 } => {
+  const [query] = useAtom(queryAtom);
+  let input = null;
+  if (query !== '') {
+    // TODO: case-insensitive search
+    input = { task_contains: query };
+  }
+
   const queryVariables = {
     page: pageIndex,
     limit: pageSize,
     sort: sortField,
     direction: sortDirection,
+    input,
   };
 
   const { data, hasNextPage, fetchNextPage, isLoading, isFetchingNextPage } = useInfiniteTodosQuery(

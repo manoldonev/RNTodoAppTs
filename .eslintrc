@@ -30,10 +30,7 @@
     },
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "react", "import"],
   "rules": {
     "@typescript-eslint/array-type": [
       "error",
@@ -93,10 +90,7 @@
       "error",
       {
         "props": true,
-        "ignorePropertyModificationsForRegex": [
-          "^draft",
-          "keys"
-        ]
+        "ignorePropertyModificationsForRegex": ["^draft", "keys"]
       }
     ],
     "react/function-component-definition": [
@@ -131,12 +125,20 @@
       {
         "varsIgnorePattern": "^React$"
       }
-    ]
+    ],
+    "import/no-unresolved": "error",
+    "import/no-named-as-default-member": "off"
   },
   "settings": {
-    "import/ignore": [
-      "node_modules/react-native/index\\.js$"
-    ]
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "import/ignore": ["node_modules/react-native/index\\.js$"]
   },
   // Map from global var to bool specifying if it can be redefined
   "globals": {

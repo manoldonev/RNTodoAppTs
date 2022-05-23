@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useTailwind } from '@theming';
 import { TasksHomeScreen } from './TasksHomeScreen';
 import { TasksNewScreen } from './TasksNewScreen';
-import { useTailwind } from '../../theming';
 import type { TasksStackParamList } from './types';
 
 const TasksStack = createNativeStackNavigator<TasksStackParamList>();
