@@ -1,9 +1,10 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
-import { useTodos } from './hooks';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useTailwind } from '@theming';
+import { useTodos } from './query';
 import { TodoItem } from '../TodoItem';
-import { useTailwind } from '../../../theming';
 
 const Todos = (): JSX.Element => {
   const tw = useTailwind();
@@ -13,8 +14,9 @@ const Todos = (): JSX.Element => {
 
   if (isEmpty) {
     return (
-      <View style={tw`justify-center flex-1`}>
-        <Text style={tw`text-lg text-center`}>No Data</Text>
+      <View style={tw`justify-center items-center flex-1`}>
+        <Icon name="sad-outline" size={96} color={tw.color('text-on-background')} />
+        <Text style={tw`text-lg text-on-background`}>No items available</Text>
       </View>
     );
   }
@@ -31,6 +33,8 @@ const Todos = (): JSX.Element => {
       ListFooterComponent={isFetchingNextPage ? <ActivityIndicator size="large" style={tw`py-2.5`} /> : null}
       ListEmptyComponent={<ActivityIndicator size="large" />}
       contentContainerStyle={[isLoading && tw`justify-center flex-1`]}
+      contentInsetAdjustmentBehavior="automatic"
+      style={tw`w-full`}
     />
   );
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { AnalyticsScreen, SettingsScreen, TasksScreen } from '../screens';
 import { useTailwind } from '../theming';
+import { AnalyticsScreen, SettingsScreen, TasksScreen } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,8 +42,8 @@ const TabNavigator = (): JSX.Element => {
       })}
     >
       <Tab.Screen name="Tasks" component={TasksScreen} options={{ headerShown: false }} />
-      <Tab.Screen name="Analytics" component={AnalyticsScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Analytics" component={AnalyticsScreen} options={{ headerTitle: 'Analytics' }} />
+      <Tab.Screen name="Settings" component={SettingsScreen} options={{ headerTitle: 'Settings' }} />
     </Tab.Navigator>
   );
 };

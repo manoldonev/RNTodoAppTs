@@ -1,8 +1,8 @@
 import React from 'react';
 import { Platform, Switch, Text, useColorScheme, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FocusAwareStatusBar } from '../../components/FocusAwareStatusBar';
-import { useActiveColorScheme, useAppColorScheme, useTailwind } from '../../theming';
+import { useActiveColorScheme, useAppColorScheme, useTailwind } from '@theming';
+import { FocusAwareStatusBar } from '@components/FocusAwareStatusBar';
 
 const SettingsScreen = (): JSX.Element => {
   const tw = useTailwind();

@@ -1,0 +1,1 @@
+export { queryAtom } from './queryAtom';

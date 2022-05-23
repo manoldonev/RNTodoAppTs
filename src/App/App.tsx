@@ -4,9 +4,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useDeviceContext } from 'twrnc';
+import { useTailwind } from '@theming';
 import { useRefetchOnAppFocus, useRefetchOnReconnect } from './hooks';
 import { TabNavigator } from '../navigation';
-import { useTailwind } from '../theming';
 
 if (Platform.OS === 'android') {
   UIManager.setLayoutAnimationEnabledExperimental(true);

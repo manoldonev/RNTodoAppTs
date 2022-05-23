@@ -1,9 +1,4 @@
-import {
-  mockCreateTodoMutation,
-  mockDeleteTodoMutation,
-  mockTodosQuery,
-  mockUpdateTodoMutation,
-} from '../../generated';
+import { mockCreateTodoMutation, mockDeleteTodoMutation, mockTodosQuery, mockUpdateTodoMutation } from '@generated';
 import { todos } from './todos';
 
 const pageIndex = 1;

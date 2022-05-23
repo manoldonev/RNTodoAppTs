@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { ThemingProvider } from '@theming';
 import { App } from './App';
-import { ThemingProvider } from '../theming';
 
 setLogger({
   // eslint-disable-next-line no-console
