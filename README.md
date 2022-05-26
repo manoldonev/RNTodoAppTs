@@ -8,6 +8,7 @@
 - pre-commit hooks
 - CI GitHub workflow
 - Dependency management via [Renovate](https://www.whitesourcesoftware.com/free-developer-tools/renovate/)
+- Package management via [pnpm](https://pnpm.io/)
 
 ## UX & Theming
 

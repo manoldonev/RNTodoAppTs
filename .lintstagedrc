@@ -1,8 +1,8 @@
 {
   "src/**/*.{ts,tsx}": [
     "prettier --write",
-    "npm run lint -- --cache --fix --cache-location ./node_modules/.cache/.eslintcache",
+    "pnpm run lint --cache --fix --cache-location ./node_modules/.cache/.eslintcache",
     "tsc-files --noEmit",
-    "npm run test:related"
+    "pnpm run test:related"
   ]
 }

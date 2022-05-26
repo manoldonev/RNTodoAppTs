@@ -15,5 +15,5 @@
   ],
   "prCreation": "not-pending",
   "ignoreDeps": ["react", "@types/react", "react-test-renderer"],
-  "enabledManagers": ["npm"]
+  "enabledManagers": ["pnpm"]
 }

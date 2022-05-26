@@ -8,7 +8,7 @@
     "ios": "react-native run-ios",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "test": "jest --watchAll --detectOpenHandles",
-    "test:related": "npm run test -- --bail --watchAll=false --findRelatedTests src/**/*.{ts,tsx} --passWithNoTests --forceExit",
+    "test:related": "pnpm run test --bail --watchAll=false --findRelatedTests src/**/*.{ts,tsx} --passWithNoTests --forceExit",
     "prettier": "prettier --check src",
     "prepare": "husky install",
     "graphql:codegen": "graphql-codegen --config .graphqlrc.yml"
