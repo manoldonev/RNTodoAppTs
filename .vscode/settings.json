@@ -13,5 +13,6 @@
     "tw={\"([^\"}]*)", // <div tw={"..."} />
     "tw\\.\\w+`([^`]*)", // tw.xxx`...`
     "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
-  ]
+  ],
+  "jsonColorToken.languages": ["json", "jsonc", "javascript", "javascriptreact", "typescript", "typescriptreact"]
 }
