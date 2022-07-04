@@ -1,7 +1,6 @@
 {
   "extends": [
     "config:base",
-    "group:allNonMajor",
     "group:monorepos",
     ":automergeMinor",
     ":automergeRequireAllStatusChecks",
@@ -14,6 +13,5 @@
     "npm:unpublishSafe"
   ],
   "prCreation": "not-pending",
-  "ignoreDeps": ["react", "@types/react", "react-test-renderer"],
-  "enabledManagers": ["npm"]
+  "ignoreDeps": ["react", "@types/react", "react-test-renderer"]
 }
