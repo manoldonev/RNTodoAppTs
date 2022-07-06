@@ -1,16 +1,8 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react-native';
-import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemingProvider } from '@theming';
 import { App } from './App';
-
-setLogger({
-  // eslint-disable-next-line no-console
-  log: console.log,
-  // eslint-disable-next-line no-console
-  warn: console.warn,
-  error: () => {},
-});
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,6 +10,13 @@ const queryClient = new QueryClient({
       retry: false,
       cacheTime: Infinity,
     },
+  },
+  logger: {
+    // eslint-disable-next-line no-console
+    log: console.log,
+    // eslint-disable-next-line no-console
+    warn: console.warn,
+    error: () => {},
   },
 });
 
