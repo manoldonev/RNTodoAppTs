@@ -9,10 +9,6 @@ import { ThemingProvider } from './src/theming';
 import { nativeServer as mswServer } from './src/mocks/msw/native';
 import { API_MOCKING } from '@env';
 
-if (API_MOCKING === 'enabled') {
-  mswServer.listen({ onUnhandledRequest: 'bypass' });
-}
-
 const queryClient = new QueryClient();
 
 const Main = () => {
@@ -26,5 +22,9 @@ const Main = () => {
 };
 
 AppRegistry.registerComponent(appName, () => Main);
+
+if (API_MOCKING === 'enabled') {
+  mswServer.listen({ onUnhandledRequest: 'bypass' });
+}
 
 export { Main };
