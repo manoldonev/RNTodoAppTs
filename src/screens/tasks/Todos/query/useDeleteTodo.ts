@@ -1,7 +1,6 @@
 import { produce } from 'immer';
 import type { InfiniteData, QueryKey, UseMutationResult } from 'react-query';
 import { useQueryClient } from 'react-query';
-import type { QueryFilters } from 'react-query/types/core/utils';
 import type { DeleteTodoMutation, DeleteTodoMutationVariables, TodosQuery } from '@generated';
 import { useDeleteTodoMutation } from '@generated';
 import { todoKeys } from './queryKeysFactory';
@@ -17,9 +16,9 @@ const useDeleteTodo = (): UseMutationResult<DeleteTodoMutation, Error, DeleteTod
     onMutate: async ({ id }) => {
       await queryClient.cancelQueries(todoKeys.all);
 
-      const queryFilter: QueryFilters = {
-        queryKey: todoKeys.all,
-        active: true,
+      const queryFilter: { queryKey: string[]; type: 'active' | 'inactive' | 'all' } = {
+        queryKey: [...todoKeys.all],
+        type: 'active',
       };
 
       const previousQueries = queryClient.getQueriesData<InfiniteData<TodosQuery>>(queryFilter);
