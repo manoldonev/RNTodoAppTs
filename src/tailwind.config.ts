@@ -32,7 +32,7 @@ export const DarkTheme: TwTheme = {
     primary: '#6ED2FF',
     'on-primary': '#003549',
     'on-primary-variant': '#003549D0',
-    'primary-container': 'orange',
+    'primary-container': '#004D68',
     'on-primary-container': '#BEE8FF',
     secondary: '#FFB4A2',
     'secondary-variant': '#bcaeab',
