@@ -1,4 +1,4 @@
-![license](https://img.shields.io/github/license/manoldonev/RNTodoAppTs?style=plastic) ![ci workflow](https://github.com/manoldonev/RNTodoAppTs/workflows/ci/badge.svg)
+![license](https://img.shields.io/github/license/manoldonev/RNTodoAppTs?style=plastic) ![ci workflow](https://github.com/manoldonev/RNTodoAppTs/workflows/ci/badge.svg) ![npm](https://img.shields.io/badge/maintained%20with-npm-cb0000.svg?logo=npm)
 
 # React Todo App
 
