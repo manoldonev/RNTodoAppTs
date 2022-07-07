@@ -13,5 +13,6 @@
     "npm:unpublishSafe"
   ],
   "prCreation": "not-pending",
-  "ignoreDeps": ["react", "@types/react", "react-test-renderer"]
+  "ignoreDeps": ["react", "@types/react", "react-test-renderer"],
+  "enabledManagers": ["npm", "github-actions"]
 }
