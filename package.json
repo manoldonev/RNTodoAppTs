@@ -49,7 +49,7 @@
     "@graphql-codegen/typescript": "^2.4.8",
     "@graphql-codegen/typescript-msw": "^1.0.7",
     "@graphql-codegen/typescript-operations": "^2.3.5",
-    "@graphql-codegen/typescript-react-query": "^3.5.9",
+    "@graphql-codegen/typescript-react-query": "^4.0.0",
     "@testing-library/jest-native": "^4.0.4",
     "@testing-library/react-native": "^10.0.0",
     "@types/jest": "^28.0.0",
