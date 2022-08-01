@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import 'react-native-url-polyfill/auto';
 import { AppRegistry } from 'react-native';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { App } from './src/App';
 import { name as appName } from './app.json';
 import { ThemingProvider } from './src/theming';

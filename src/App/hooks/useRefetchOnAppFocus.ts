@@ -1,6 +1,6 @@
 import type { AppStateStatus } from 'react-native';
 import { Platform } from 'react-native';
-import { focusManager } from 'react-query';
+import { focusManager } from '@tanstack/react-query';
 import { useAppState } from './useAppState';
 
 const onAppStateChange = (status: AppStateStatus): void => {

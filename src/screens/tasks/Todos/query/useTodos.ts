@@ -1,4 +1,4 @@
-import type { InfiniteData } from 'react-query';
+import type { InfiniteData } from '@tanstack/react-query';
 import { useAtom } from 'jotai';
 import type { TodosQuery } from '@generated';
 import { useInfiniteTodosQuery } from '@generated';

@@ -17,7 +17,7 @@
 ## Data (Async State Management)
 
 - GraphQL
-- `react-query` with [automatic hooks generation](https://www.graphql-code-generator.com/) based on the GraphQL schema
+- `@tanstack/react-query` with [automatic hooks generation](https://www.graphql-code-generator.com/) based on the GraphQL schema
 
 ## Navigation
 

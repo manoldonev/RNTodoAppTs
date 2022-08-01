@@ -1,5 +1,5 @@
-import type { UseMutationResult } from 'react-query';
-import { useQueryClient } from 'react-query';
+import type { UseMutationResult } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import type { CreateTodoMutation, CreateTodoMutationVariables } from '@generated';
 import { useCreateTodoMutation } from '@generated';
 import { todoKeys } from './queryKeysFactory';
