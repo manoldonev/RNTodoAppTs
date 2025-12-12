@@ -22,7 +22,7 @@
     "@tanstack/react-query": "^4.0.10",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.12",
-    "jotai": "^1.6.7",
+    "jotai": "^2.0.0",
     "msw": "^0.49.0",
     "react": "18.0.0",
     "react-hook-form": "^7.31.1",
